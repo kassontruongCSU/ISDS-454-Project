@@ -72,6 +72,12 @@
     <Compile Include="Apartments.Designer.cs">
       <DependentUpon>Apartments.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckAvailability.Designer.cs">
+      <DependentUpon>CheckAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="Apartments.resx">
       <DependentUpon>Apartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckAvailability.resx">
+      <DependentUpon>CheckAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
