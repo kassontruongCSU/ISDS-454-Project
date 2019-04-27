@@ -14,3 +14,4 @@ C:\Users\azizkhallaf\source\repos\ISDS454\ISDS454\bin\Debug\AMS.mdf
 C:\Users\azizkhallaf\source\repos\ISDS454\ISDS454\bin\Debug\AMS_log.ldf
 C:\Users\azizkhallaf\source\repos\ISDS454\ISDS454\obj\Debug\ISDS454.Maintenance.resources
 C:\Users\azizkhallaf\source\repos\ISDS454\ISDS454\obj\Debug\ISDS454.Maintenances.resources
+C:\Users\azizkhallaf\source\repos\ISDS454\ISDS454\obj\Debug\ISDS454.CheckAvailability.resources
