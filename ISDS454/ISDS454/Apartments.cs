@@ -43,5 +43,14 @@ namespace ISDS454
         {
             Application.Exit();
         }
+
+        private void APARTMENTSDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+                    }
+
+        private void APARTMENTSDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

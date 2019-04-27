@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maintenances));
-            System.Windows.Forms.Label maintenanceIDLabel;
             System.Windows.Forms.Label apartmentNumberLabel;
             System.Windows.Forms.Label typeOfMaintenanceLabel;
             System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label dateLabel;
-            System.Windows.Forms.Label isCompletedLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maintenances));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.aMSDataSet = new ISDS454.AMSDataSet();
@@ -43,17 +41,17 @@
             this.mAINTENANCETableAdapter = new ISDS454.AMSDataSetTableAdapters.MAINTENANCETableAdapter();
             this.tableAdapterManager = new ISDS454.AMSDataSetTableAdapters.TableAdapterManager();
             this.mAINTENANCEBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.mAINTENANCEBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.mAINTENANCEDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,24 +60,57 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.maintenanceIDTextBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
             this.typeOfMaintenanceTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.isCompletedCheckBox = new System.Windows.Forms.CheckBox();
-            maintenanceIDLabel = new System.Windows.Forms.Label();
             apartmentNumberLabel = new System.Windows.Forms.Label();
             typeOfMaintenanceLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             dateLabel = new System.Windows.Forms.Label();
-            isCompletedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAINTENANCEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAINTENANCEBindingNavigator)).BeginInit();
             this.mAINTENANCEBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mAINTENANCEDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // apartmentNumberLabel
+            // 
+            apartmentNumberLabel.AutoSize = true;
+            apartmentNumberLabel.Location = new System.Drawing.Point(16, 78);
+            apartmentNumberLabel.Name = "apartmentNumberLabel";
+            apartmentNumberLabel.Size = new System.Drawing.Size(98, 13);
+            apartmentNumberLabel.TabIndex = 23;
+            apartmentNumberLabel.Text = "Apartment Number:";
+            // 
+            // typeOfMaintenanceLabel
+            // 
+            typeOfMaintenanceLabel.AutoSize = true;
+            typeOfMaintenanceLabel.Location = new System.Drawing.Point(16, 104);
+            typeOfMaintenanceLabel.Name = "typeOfMaintenanceLabel";
+            typeOfMaintenanceLabel.Size = new System.Drawing.Size(113, 13);
+            typeOfMaintenanceLabel.TabIndex = 25;
+            typeOfMaintenanceLabel.Text = "Type Of Maintenance:";
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(16, 130);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(63, 13);
+            descriptionLabel.TabIndex = 27;
+            descriptionLabel.Text = "Description:";
+            // 
+            // dateLabel
+            // 
+            dateLabel.AutoSize = true;
+            dateLabel.Location = new System.Drawing.Point(16, 203);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new System.Drawing.Size(33, 13);
+            dateLabel.TabIndex = 29;
+            dateLabel.Text = "Date:";
             // 
             // label1
             // 
@@ -94,7 +125,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 385);
+            this.button1.Location = new System.Drawing.Point(99, 393);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 30);
             this.button1.TabIndex = 20;
@@ -155,6 +186,31 @@
             this.mAINTENANCEBindingNavigator.TabIndex = 21;
             this.mAINTENANCEBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -187,17 +243,10 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -205,7 +254,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -214,38 +263,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // mAINTENANCEBindingNavigatorSaveItem
             // 
             this.mAINTENANCEBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.mAINTENANCEBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("mAINTENANCEBindingNavigatorSaveItem.Image")));
             this.mAINTENANCEBindingNavigatorSaveItem.Name = "mAINTENANCEBindingNavigatorSaveItem";
-            this.mAINTENANCEBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.mAINTENANCEBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.mAINTENANCEBindingNavigatorSaveItem.Text = "Save Data";
             this.mAINTENANCEBindingNavigatorSaveItem.Click += new System.EventHandler(this.MAINTENANCEBindingNavigatorSaveItem_Click);
             // 
@@ -263,7 +294,7 @@
             this.mAINTENANCEDataGridView.DataSource = this.mAINTENANCEBindingSource;
             this.mAINTENANCEDataGridView.Location = new System.Drawing.Point(355, 74);
             this.mAINTENANCEDataGridView.Name = "mAINTENANCEDataGridView";
-            this.mAINTENANCEDataGridView.Size = new System.Drawing.Size(643, 341);
+            this.mAINTENANCEDataGridView.Size = new System.Drawing.Size(643, 349);
             this.mAINTENANCEDataGridView.TabIndex = 21;
             // 
             // dataGridViewTextBoxColumn1
@@ -302,105 +333,43 @@
             this.dataGridViewCheckBoxColumn1.HeaderText = "IsCompleted";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
-            // maintenanceIDLabel
-            // 
-            maintenanceIDLabel.AutoSize = true;
-            maintenanceIDLabel.Location = new System.Drawing.Point(15, 77);
-            maintenanceIDLabel.Name = "maintenanceIDLabel";
-            maintenanceIDLabel.Size = new System.Drawing.Size(86, 13);
-            maintenanceIDLabel.TabIndex = 21;
-            maintenanceIDLabel.Text = "Maintenance ID:";
-            // 
-            // maintenanceIDTextBox
-            // 
-            this.maintenanceIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mAINTENANCEBindingSource, "MaintenanceID", true));
-            this.maintenanceIDTextBox.Location = new System.Drawing.Point(134, 74);
-            this.maintenanceIDTextBox.Name = "maintenanceIDTextBox";
-            this.maintenanceIDTextBox.Size = new System.Drawing.Size(200, 20);
-            this.maintenanceIDTextBox.TabIndex = 22;
-            // 
-            // apartmentNumberLabel
-            // 
-            apartmentNumberLabel.AutoSize = true;
-            apartmentNumberLabel.Location = new System.Drawing.Point(15, 103);
-            apartmentNumberLabel.Name = "apartmentNumberLabel";
-            apartmentNumberLabel.Size = new System.Drawing.Size(98, 13);
-            apartmentNumberLabel.TabIndex = 23;
-            apartmentNumberLabel.Text = "Apartment Number:";
-            // 
             // apartmentNumberTextBox
             // 
             this.apartmentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mAINTENANCEBindingSource, "ApartmentNumber", true));
-            this.apartmentNumberTextBox.Location = new System.Drawing.Point(134, 100);
+            this.apartmentNumberTextBox.Location = new System.Drawing.Point(135, 75);
             this.apartmentNumberTextBox.Name = "apartmentNumberTextBox";
             this.apartmentNumberTextBox.Size = new System.Drawing.Size(200, 20);
             this.apartmentNumberTextBox.TabIndex = 24;
             // 
-            // typeOfMaintenanceLabel
-            // 
-            typeOfMaintenanceLabel.AutoSize = true;
-            typeOfMaintenanceLabel.Location = new System.Drawing.Point(15, 129);
-            typeOfMaintenanceLabel.Name = "typeOfMaintenanceLabel";
-            typeOfMaintenanceLabel.Size = new System.Drawing.Size(113, 13);
-            typeOfMaintenanceLabel.TabIndex = 25;
-            typeOfMaintenanceLabel.Text = "Type Of Maintenance:";
-            // 
             // typeOfMaintenanceTextBox
             // 
             this.typeOfMaintenanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mAINTENANCEBindingSource, "TypeOfMaintenance", true));
-            this.typeOfMaintenanceTextBox.Location = new System.Drawing.Point(134, 126);
+            this.typeOfMaintenanceTextBox.Location = new System.Drawing.Point(135, 101);
             this.typeOfMaintenanceTextBox.Name = "typeOfMaintenanceTextBox";
             this.typeOfMaintenanceTextBox.Size = new System.Drawing.Size(200, 20);
             this.typeOfMaintenanceTextBox.TabIndex = 26;
             // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(15, 155);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(63, 13);
-            descriptionLabel.TabIndex = 27;
-            descriptionLabel.Text = "Description:";
-            // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mAINTENANCEBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(134, 152);
+            this.descriptionTextBox.Location = new System.Drawing.Point(135, 127);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(200, 66);
             this.descriptionTextBox.TabIndex = 28;
             // 
-            // dateLabel
-            // 
-            dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(15, 228);
-            dateLabel.Name = "dateLabel";
-            dateLabel.Size = new System.Drawing.Size(33, 13);
-            dateLabel.TabIndex = 29;
-            dateLabel.Text = "Date:";
-            // 
             // dateDateTimePicker
             // 
             this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mAINTENANCEBindingSource, "Date", true));
-            this.dateDateTimePicker.Location = new System.Drawing.Point(134, 224);
+            this.dateDateTimePicker.Location = new System.Drawing.Point(135, 199);
             this.dateDateTimePicker.Name = "dateDateTimePicker";
             this.dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateDateTimePicker.TabIndex = 30;
             // 
-            // isCompletedLabel
-            // 
-            isCompletedLabel.AutoSize = true;
-            isCompletedLabel.Location = new System.Drawing.Point(15, 255);
-            isCompletedLabel.Name = "isCompletedLabel";
-            isCompletedLabel.Size = new System.Drawing.Size(71, 13);
-            isCompletedLabel.TabIndex = 31;
-            isCompletedLabel.Text = "Is Completed:";
-            // 
             // isCompletedCheckBox
             // 
             this.isCompletedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.mAINTENANCEBindingSource, "IsCompleted", true));
-            this.isCompletedCheckBox.Location = new System.Drawing.Point(134, 250);
+            this.isCompletedCheckBox.Location = new System.Drawing.Point(135, 225);
             this.isCompletedCheckBox.Name = "isCompletedCheckBox";
             this.isCompletedCheckBox.Size = new System.Drawing.Size(200, 24);
             this.isCompletedCheckBox.TabIndex = 32;
@@ -412,8 +381,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 435);
-            this.Controls.Add(maintenanceIDLabel);
-            this.Controls.Add(this.maintenanceIDTextBox);
             this.Controls.Add(apartmentNumberLabel);
             this.Controls.Add(this.apartmentNumberTextBox);
             this.Controls.Add(typeOfMaintenanceLabel);
@@ -422,7 +389,6 @@
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(dateLabel);
             this.Controls.Add(this.dateDateTimePicker);
-            this.Controls.Add(isCompletedLabel);
             this.Controls.Add(this.isCompletedCheckBox);
             this.Controls.Add(this.mAINTENANCEDataGridView);
             this.Controls.Add(this.mAINTENANCEBindingNavigator);
@@ -471,7 +437,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.TextBox maintenanceIDTextBox;
         private System.Windows.Forms.TextBox apartmentNumberTextBox;
         private System.Windows.Forms.TextBox typeOfMaintenanceTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;

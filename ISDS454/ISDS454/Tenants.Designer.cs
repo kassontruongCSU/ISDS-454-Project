@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label tenantIDLabel;
             System.Windows.Forms.Label fNameLabel;
             System.Windows.Forms.Label lNameLabel;
             System.Windows.Forms.Label sSNLabel;
@@ -64,14 +63,12 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenantIDTextBox = new System.Windows.Forms.TextBox();
             this.fNameTextBox = new System.Windows.Forms.TextBox();
             this.lNameTextBox = new System.Windows.Forms.TextBox();
             this.sSNTextBox = new System.Windows.Forms.TextBox();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
-            tenantIDLabel = new System.Windows.Forms.Label();
             fNameLabel = new System.Windows.Forms.Label();
             lNameLabel = new System.Windows.Forms.Label();
             sSNLabel = new System.Windows.Forms.Label();
@@ -85,37 +82,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.tENANTSDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // tenantIDLabel
-            // 
-            tenantIDLabel.AutoSize = true;
-            tenantIDLabel.Location = new System.Drawing.Point(12, 82);
-            tenantIDLabel.Name = "tenantIDLabel";
-            tenantIDLabel.Size = new System.Drawing.Size(58, 13);
-            tenantIDLabel.TabIndex = 17;
-            tenantIDLabel.Text = "Tenant ID:";
-            // 
             // fNameLabel
             // 
             fNameLabel.AutoSize = true;
-            fNameLabel.Location = new System.Drawing.Point(12, 108);
+            fNameLabel.Location = new System.Drawing.Point(14, 89);
             fNameLabel.Name = "fNameLabel";
-            fNameLabel.Size = new System.Drawing.Size(44, 13);
+            fNameLabel.Size = new System.Drawing.Size(60, 13);
             fNameLabel.TabIndex = 19;
-            fNameLabel.Text = "FName:";
+            fNameLabel.Text = "First Name:";
             // 
             // lNameLabel
             // 
             lNameLabel.AutoSize = true;
-            lNameLabel.Location = new System.Drawing.Point(12, 134);
+            lNameLabel.Location = new System.Drawing.Point(14, 115);
             lNameLabel.Name = "lNameLabel";
-            lNameLabel.Size = new System.Drawing.Size(44, 13);
+            lNameLabel.Size = new System.Drawing.Size(61, 13);
             lNameLabel.TabIndex = 21;
-            lNameLabel.Text = "LName:";
+            lNameLabel.Text = "Last Name:";
             // 
             // sSNLabel
             // 
             sSNLabel.AutoSize = true;
-            sSNLabel.Location = new System.Drawing.Point(12, 160);
+            sSNLabel.Location = new System.Drawing.Point(14, 141);
             sSNLabel.Name = "sSNLabel";
             sSNLabel.Size = new System.Drawing.Size(32, 13);
             sSNLabel.TabIndex = 23;
@@ -124,7 +112,7 @@
             // phoneNumberLabel
             // 
             phoneNumberLabel.AutoSize = true;
-            phoneNumberLabel.Location = new System.Drawing.Point(12, 186);
+            phoneNumberLabel.Location = new System.Drawing.Point(14, 167);
             phoneNumberLabel.Name = "phoneNumberLabel";
             phoneNumberLabel.Size = new System.Drawing.Size(81, 13);
             phoneNumberLabel.TabIndex = 25;
@@ -133,7 +121,7 @@
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(12, 212);
+            emailLabel.Location = new System.Drawing.Point(14, 193);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new System.Drawing.Size(35, 13);
             emailLabel.TabIndex = 27;
@@ -142,7 +130,7 @@
             // apartmentNumberLabel
             // 
             apartmentNumberLabel.AutoSize = true;
-            apartmentNumberLabel.Location = new System.Drawing.Point(12, 238);
+            apartmentNumberLabel.Location = new System.Drawing.Point(14, 219);
             apartmentNumberLabel.Name = "apartmentNumberLabel";
             apartmentNumberLabel.Size = new System.Drawing.Size(98, 13);
             apartmentNumberLabel.TabIndex = 29;
@@ -151,7 +139,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(51, 387);
+            this.button1.Location = new System.Drawing.Point(57, 387);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 30);
             this.button1.TabIndex = 2;
@@ -379,18 +367,10 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "ApartmentNumber";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // tenantIDTextBox
-            // 
-            this.tenantIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "TenantID", true));
-            this.tenantIDTextBox.Location = new System.Drawing.Point(116, 79);
-            this.tenantIDTextBox.Name = "tenantIDTextBox";
-            this.tenantIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.tenantIDTextBox.TabIndex = 18;
-            // 
             // fNameTextBox
             // 
             this.fNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "FName", true));
-            this.fNameTextBox.Location = new System.Drawing.Point(116, 105);
+            this.fNameTextBox.Location = new System.Drawing.Point(118, 86);
             this.fNameTextBox.Name = "fNameTextBox";
             this.fNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fNameTextBox.TabIndex = 20;
@@ -398,7 +378,7 @@
             // lNameTextBox
             // 
             this.lNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "LName", true));
-            this.lNameTextBox.Location = new System.Drawing.Point(116, 131);
+            this.lNameTextBox.Location = new System.Drawing.Point(118, 112);
             this.lNameTextBox.Name = "lNameTextBox";
             this.lNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.lNameTextBox.TabIndex = 22;
@@ -406,7 +386,7 @@
             // sSNTextBox
             // 
             this.sSNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "SSN", true));
-            this.sSNTextBox.Location = new System.Drawing.Point(116, 157);
+            this.sSNTextBox.Location = new System.Drawing.Point(118, 138);
             this.sSNTextBox.Name = "sSNTextBox";
             this.sSNTextBox.Size = new System.Drawing.Size(100, 20);
             this.sSNTextBox.TabIndex = 24;
@@ -414,7 +394,7 @@
             // phoneNumberTextBox
             // 
             this.phoneNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "PhoneNumber", true));
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(116, 183);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(118, 164);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.phoneNumberTextBox.TabIndex = 26;
@@ -422,7 +402,7 @@
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(116, 209);
+            this.emailTextBox.Location = new System.Drawing.Point(118, 190);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(100, 20);
             this.emailTextBox.TabIndex = 28;
@@ -430,7 +410,7 @@
             // apartmentNumberTextBox
             // 
             this.apartmentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tENANTSBindingSource, "ApartmentNumber", true));
-            this.apartmentNumberTextBox.Location = new System.Drawing.Point(116, 235);
+            this.apartmentNumberTextBox.Location = new System.Drawing.Point(118, 216);
             this.apartmentNumberTextBox.Name = "apartmentNumberTextBox";
             this.apartmentNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.apartmentNumberTextBox.TabIndex = 30;
@@ -440,8 +420,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 430);
-            this.Controls.Add(tenantIDLabel);
-            this.Controls.Add(this.tenantIDTextBox);
             this.Controls.Add(fNameLabel);
             this.Controls.Add(this.fNameTextBox);
             this.Controls.Add(lNameLabel);
@@ -503,7 +481,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.TextBox tenantIDTextBox;
         private System.Windows.Forms.TextBox fNameTextBox;
         private System.Windows.Forms.TextBox lNameTextBox;
         private System.Windows.Forms.TextBox sSNTextBox;
