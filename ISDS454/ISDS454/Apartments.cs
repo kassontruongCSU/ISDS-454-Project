@@ -52,5 +52,12 @@ namespace ISDS454
         {
 
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            CheckAvailability apts = new CheckAvailability();
+            this.Hide();
+            apts.Show();
+        }
     }
 }

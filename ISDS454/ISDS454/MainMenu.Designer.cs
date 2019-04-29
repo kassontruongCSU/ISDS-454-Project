@@ -109,7 +109,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "Main Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

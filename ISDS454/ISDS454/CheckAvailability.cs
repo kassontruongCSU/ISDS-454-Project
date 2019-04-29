@@ -23,5 +23,42 @@ namespace ISDS454
             this.aPARTMENTSTableAdapter.Fill(this.aMSDataSet.APARTMENTS);
 
         }
+
+        private void FillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.aPARTMENTSTableAdapter.FillBy(this.aMSDataSet.APARTMENTS);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Apartments apts = new Apartments();
+            this.Hide();
+            apts.Show();
+        }
+
+        private void CheckAvailability_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Tenants tnnts = new Tenants();
+            this.Hide();
+            tnnts.Show();
+        }
     }
 }

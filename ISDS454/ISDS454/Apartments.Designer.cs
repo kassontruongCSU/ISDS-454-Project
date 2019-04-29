@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.aPARTMENTSBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.aPARTMENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aMSDataSet = new ISDS454.AMSDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,7 +47,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.aPARTMENTSBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.aPARTMENTSTableAdapter = new ISDS454.AMSDataSetTableAdapters.APARTMENTSTableAdapter();
+            this.tableAdapterManager = new ISDS454.AMSDataSetTableAdapters.TableAdapterManager();
             this.aPARTMENTSDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,17 +57,14 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aPARTMENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aMSDataSet = new ISDS454.AMSDataSet();
-            this.aPARTMENTSTableAdapter = new ISDS454.AMSDataSetTableAdapters.APARTMENTSTableAdapter();
-            this.tableAdapterManager = new ISDS454.AMSDataSetTableAdapters.TableAdapterManager();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingNavigator)).BeginInit();
             this.aPARTMENTSBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -104,7 +104,7 @@
             this.aPARTMENTSBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.aPARTMENTSBindingNavigator.Name = "aPARTMENTSBindingNavigator";
             this.aPARTMENTSBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.aPARTMENTSBindingNavigator.Size = new System.Drawing.Size(976, 25);
+            this.aPARTMENTSBindingNavigator.Size = new System.Drawing.Size(966, 25);
             this.aPARTMENTSBindingNavigator.TabIndex = 2;
             this.aPARTMENTSBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -116,6 +116,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // aPARTMENTSBindingSource
+            // 
+            this.aPARTMENTSBindingSource.DataMember = "APARTMENTS";
+            this.aPARTMENTSBindingSource.DataSource = this.aMSDataSet;
+            // 
+            // aMSDataSet
+            // 
+            this.aMSDataSet.DataSetName = "AMSDataSet";
+            this.aMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -205,19 +215,26 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(218, 419);
+            this.button2.Location = new System.Drawing.Point(12, 416);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(184, 30);
             this.button2.TabIndex = 3;
             this.button2.Text = "Check Availability";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // dateTimePicker1
+            // aPARTMENTSTableAdapter
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 423);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.aPARTMENTSTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.APARTMENTSTableAdapter = this.aPARTMENTSTableAdapter;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.MAINTENANCETableAdapter = null;
+            this.tableAdapterManager.TENANTSTableAdapter = null;
+            this.tableAdapterManager.TRANSACTIONSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ISDS454.AMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // aPARTMENTSDataGridView
             // 
@@ -231,13 +248,13 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewCheckBoxColumn3,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
             this.aPARTMENTSDataGridView.DataSource = this.aPARTMENTSBindingSource;
-            this.aPARTMENTSDataGridView.Location = new System.Drawing.Point(12, 48);
+            this.aPARTMENTSDataGridView.Location = new System.Drawing.Point(12, 73);
             this.aPARTMENTSDataGridView.Name = "aPARTMENTSDataGridView";
-            this.aPARTMENTSDataGridView.Size = new System.Drawing.Size(944, 353);
-            this.aPARTMENTSDataGridView.TabIndex = 4;
+            this.aPARTMENTSDataGridView.Size = new System.Drawing.Size(944, 337);
+            this.aPARTMENTSDataGridView.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -281,48 +298,35 @@
             this.dataGridViewCheckBoxColumn2.HeaderText = "Smoking";
             this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
             // 
-            // dataGridViewCheckBoxColumn3
-            // 
-            this.dataGridViewCheckBoxColumn3.DataPropertyName = "Vacancy";
-            this.dataGridViewCheckBoxColumn3.HeaderText = "Vacancy";
-            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
             this.dataGridViewTextBoxColumn6.HeaderText = "Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // aPARTMENTSBindingSource
+            // dataGridViewTextBoxColumn7
             // 
-            this.aPARTMENTSBindingSource.DataMember = "APARTMENTS";
-            this.aPARTMENTSBindingSource.DataSource = this.aMSDataSet;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "MoveOutDate";
+            this.dataGridViewTextBoxColumn7.HeaderText = "MoveOutDate";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // aMSDataSet
+            // label1
             // 
-            this.aMSDataSet.DataSetName = "AMSDataSet";
-            this.aMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // aPARTMENTSTableAdapter
-            // 
-            this.aPARTMENTSTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.APARTMENTSTableAdapter = this.aPARTMENTSTableAdapter;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.MAINTENANCETableAdapter = null;
-            this.tableAdapterManager.TENANTSTableAdapter = null;
-            this.tableAdapterManager.TRANSACTIONSTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ISDS454.AMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 33);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Apartments";
             // 
             // Apartments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 458);
+            this.ClientSize = new System.Drawing.Size(966, 453);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.aPARTMENTSDataGridView);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.aPARTMENTSBindingNavigator);
             this.Controls.Add(this.button1);
@@ -333,9 +337,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingNavigator)).EndInit();
             this.aPARTMENTSBindingNavigator.ResumeLayout(false);
             this.aPARTMENTSBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,7 +366,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton aPARTMENTSBindingNavigatorSaveItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView aPARTMENTSDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -371,7 +374,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Label label1;
     }
 }

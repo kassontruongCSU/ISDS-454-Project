@@ -419,9 +419,9 @@ namespace ISDS454 {
             
             private global::System.Data.DataColumn columnSmoking;
             
-            private global::System.Data.DataColumn columnVacancy;
-            
             private global::System.Data.DataColumn columnPrice;
+            
+            private global::System.Data.DataColumn columnMoveOutDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -514,17 +514,17 @@ namespace ISDS454 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn VacancyColumn {
+            public global::System.Data.DataColumn PriceColumn {
                 get {
-                    return this.columnVacancy;
+                    return this.columnPrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PriceColumn {
+            public global::System.Data.DataColumn MoveOutDateColumn {
                 get {
-                    return this.columnPrice;
+                    return this.columnMoveOutDate;
                 }
             }
             
@@ -565,7 +565,7 @@ namespace ISDS454 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public APARTMENTSRow AddAPARTMENTSRow(int ApartmentNumber, int NumberOfOccupents, int ApartmentSize, int NumberOfBedrooms, int ParkingSpace, bool Pets, bool Smoking, bool Vacancy, string Price) {
+            public APARTMENTSRow AddAPARTMENTSRow(int ApartmentNumber, int NumberOfOccupents, int ApartmentSize, int NumberOfBedrooms, int ParkingSpace, bool Pets, bool Smoking, string Price, System.DateTime MoveOutDate) {
                 APARTMENTSRow rowAPARTMENTSRow = ((APARTMENTSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ApartmentNumber,
@@ -575,8 +575,8 @@ namespace ISDS454 {
                         ParkingSpace,
                         Pets,
                         Smoking,
-                        Vacancy,
-                        Price};
+                        Price,
+                        MoveOutDate};
                 rowAPARTMENTSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAPARTMENTSRow);
                 return rowAPARTMENTSRow;
@@ -613,8 +613,8 @@ namespace ISDS454 {
                 this.columnParkingSpace = base.Columns["ParkingSpace"];
                 this.columnPets = base.Columns["Pets"];
                 this.columnSmoking = base.Columns["Smoking"];
-                this.columnVacancy = base.Columns["Vacancy"];
                 this.columnPrice = base.Columns["Price"];
+                this.columnMoveOutDate = base.Columns["MoveOutDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -634,10 +634,10 @@ namespace ISDS454 {
                 base.Columns.Add(this.columnPets);
                 this.columnSmoking = new global::System.Data.DataColumn("Smoking", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSmoking);
-                this.columnVacancy = new global::System.Data.DataColumn("Vacancy", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVacancy);
                 this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice);
+                this.columnMoveOutDate = new global::System.Data.DataColumn("MoveOutDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMoveOutDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnApartmentNumber}, true));
                 this.columnApartmentNumber.AllowDBNull = false;
@@ -647,8 +647,6 @@ namespace ISDS454 {
                 this.columnParkingSpace.AllowDBNull = false;
                 this.columnPets.DefaultValue = ((bool)(false));
                 this.columnSmoking.DefaultValue = ((bool)(false));
-                this.columnVacancy.AllowDBNull = false;
-                this.columnVacancy.DefaultValue = ((bool)(true));
                 this.columnPrice.AllowDBNull = false;
                 this.columnPrice.MaxLength = 10;
             }
@@ -1883,23 +1881,28 @@ namespace ISDS454 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Vacancy {
-                get {
-                    return ((bool)(this[this.tableAPARTMENTS.VacancyColumn]));
-                }
-                set {
-                    this[this.tableAPARTMENTS.VacancyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Price {
                 get {
                     return ((string)(this[this.tableAPARTMENTS.PriceColumn]));
                 }
                 set {
                     this[this.tableAPARTMENTS.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime MoveOutDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAPARTMENTS.MoveOutDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MoveOutDate\' in table \'APARTMENTS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAPARTMENTS.MoveOutDateColumn] = value;
                 }
             }
             
@@ -1937,6 +1940,18 @@ namespace ISDS454 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSmokingNull() {
                 this[this.tableAPARTMENTS.SmokingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMoveOutDateNull() {
+                return this.IsNull(this.tableAPARTMENTS.MoveOutDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMoveOutDateNull() {
+                this[this.tableAPARTMENTS.MoveOutDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2591,12 +2606,12 @@ namespace ISDS454.AMSDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ParkingSpace", "ParkingSpace");
             tableMapping.ColumnMappings.Add("Pets", "Pets");
             tableMapping.ColumnMappings.Add("Smoking", "Smoking");
-            tableMapping.ColumnMappings.Add("Vacancy", "Vacancy");
             tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("MoveOutDate", "MoveOutDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [APARTMENTS] WHERE (([ApartmentNumber] = @Original_ApartmentNumber) AND ((@IsNull_NumberOfOccupents = 1 AND [NumberOfOccupents] IS NULL) OR ([NumberOfOccupents] = @Original_NumberOfOccupents)) AND ([ApartmentSize] = @Original_ApartmentSize) AND ([NumberOfBedrooms] = @Original_NumberOfBedrooms) AND ([ParkingSpace] = @Original_ParkingSpace) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ((@IsNull_Smoking = 1 AND [Smoking] IS NULL) OR ([Smoking] = @Original_Smoking)) AND ((@IsNull_Vacancy = 1 AND [Vacancy] IS NULL) OR ([Vacancy] = @Original_Vacancy)) AND ([Price] = @Original_Price))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [APARTMENTS] WHERE (([ApartmentNumber] = @Original_ApartmentNumber) AND ((@IsNull_NumberOfOccupents = 1 AND [NumberOfOccupents] IS NULL) OR ([NumberOfOccupents] = @Original_NumberOfOccupents)) AND ([ApartmentSize] = @Original_ApartmentSize) AND ([NumberOfBedrooms] = @Original_NumberOfBedrooms) AND ([ParkingSpace] = @Original_ParkingSpace) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ((@IsNull_Smoking = 1 AND [Smoking] IS NULL) OR ([Smoking] = @Original_Smoking)) AND ([Price] = @Original_Price) AND ((@IsNull_MoveOutDate = 1 AND [MoveOutDate] IS NULL) OR ([MoveOutDate] = @Original_MoveOutDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApartmentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApartmentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberOfOccupents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfOccupents", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2608,13 +2623,13 @@ namespace ISDS454.AMSDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Smoking", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Smoking", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Vacancy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vacancy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MoveOutDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MoveOutDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [APARTMENTS] ([ApartmentNumber], [NumberOfOccupents], [ApartmentSize], [NumberOfBedrooms], [ParkingSpace], [Pets], [Smoking], [Vacancy], [Price]) VALUES (@ApartmentNumber, @NumberOfOccupents, @ApartmentSize, @NumberOfBedrooms, @ParkingSpace, @Pets, @Smoking, @Vacancy, @Price);
-SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Vacancy, Price FROM APARTMENTS WHERE (ApartmentNumber = @ApartmentNumber)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [APARTMENTS] ([ApartmentNumber], [NumberOfOccupents], [ApartmentSize], [NumberOfBedrooms], [ParkingSpace], [Pets], [Smoking], [Price], [MoveOutDate]) VALUES (@ApartmentNumber, @NumberOfOccupents, @ApartmentSize, @NumberOfBedrooms, @ParkingSpace, @Pets, @Smoking, @Price, @MoveOutDate);
+SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Price, MoveOutDate FROM APARTMENTS WHERE (ApartmentNumber = @ApartmentNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApartmentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApartmentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfOccupents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfOccupents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2623,12 +2638,12 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParkingSpace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParkingSpace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Smoking", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vacancy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MoveOutDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [APARTMENTS] SET [ApartmentNumber] = @ApartmentNumber, [NumberOfOccupents] = @NumberOfOccupents, [ApartmentSize] = @ApartmentSize, [NumberOfBedrooms] = @NumberOfBedrooms, [ParkingSpace] = @ParkingSpace, [Pets] = @Pets, [Smoking] = @Smoking, [Vacancy] = @Vacancy, [Price] = @Price WHERE (([ApartmentNumber] = @Original_ApartmentNumber) AND ((@IsNull_NumberOfOccupents = 1 AND [NumberOfOccupents] IS NULL) OR ([NumberOfOccupents] = @Original_NumberOfOccupents)) AND ([ApartmentSize] = @Original_ApartmentSize) AND ([NumberOfBedrooms] = @Original_NumberOfBedrooms) AND ([ParkingSpace] = @Original_ParkingSpace) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ((@IsNull_Smoking = 1 AND [Smoking] IS NULL) OR ([Smoking] = @Original_Smoking)) AND ((@IsNull_Vacancy = 1 AND [Vacancy] IS NULL) OR ([Vacancy] = @Original_Vacancy)) AND ([Price] = @Original_Price));
-SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Vacancy, Price FROM APARTMENTS WHERE (ApartmentNumber = @ApartmentNumber)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [APARTMENTS] SET [ApartmentNumber] = @ApartmentNumber, [NumberOfOccupents] = @NumberOfOccupents, [ApartmentSize] = @ApartmentSize, [NumberOfBedrooms] = @NumberOfBedrooms, [ParkingSpace] = @ParkingSpace, [Pets] = @Pets, [Smoking] = @Smoking, [Price] = @Price, [MoveOutDate] = @MoveOutDate WHERE (([ApartmentNumber] = @Original_ApartmentNumber) AND ((@IsNull_NumberOfOccupents = 1 AND [NumberOfOccupents] IS NULL) OR ([NumberOfOccupents] = @Original_NumberOfOccupents)) AND ([ApartmentSize] = @Original_ApartmentSize) AND ([NumberOfBedrooms] = @Original_NumberOfBedrooms) AND ([ParkingSpace] = @Original_ParkingSpace) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ((@IsNull_Smoking = 1 AND [Smoking] IS NULL) OR ([Smoking] = @Original_Smoking)) AND ([Price] = @Original_Price) AND ((@IsNull_MoveOutDate = 1 AND [MoveOutDate] IS NULL) OR ([MoveOutDate] = @Original_MoveOutDate)));
+SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Price, MoveOutDate FROM APARTMENTS WHERE (ApartmentNumber = @ApartmentNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApartmentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApartmentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfOccupents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfOccupents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2637,8 +2652,8 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParkingSpace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParkingSpace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Smoking", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vacancy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MoveOutDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApartmentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApartmentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberOfOccupents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfOccupents", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberOfOccupents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfOccupents", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2649,9 +2664,9 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Smoking", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Smoking", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Smoking", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Vacancy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vacancy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vacancy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MoveOutDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MoveOutDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MoveOutDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2664,12 +2679,18 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Parki" +
-                "ngSpace, Pets, Smoking, Vacancy, Price FROM APARTMENTS";
+                "ngSpace, Pets, Smoking, Price, MoveOutDate FROM APARTMENTS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms" +
+                ", ParkingSpace, Pets, Smoking, Price, MoveOutDate\r\nFROM            APARTMENTS\r\nW" +
+                "HERE        (MoveOutDate < GETDATE()) or MoveOutDate is NULL";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2694,6 +2715,19 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             AMSDataSet.APARTMENTSDataTable dataTable = new AMSDataSet.APARTMENTSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(AMSDataSet.APARTMENTSDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2729,7 +2763,7 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ApartmentNumber, global::System.Nullable<int> Original_NumberOfOccupents, int Original_ApartmentSize, int Original_NumberOfBedrooms, int Original_ParkingSpace, global::System.Nullable<bool> Original_Pets, global::System.Nullable<bool> Original_Smoking, global::System.Nullable<bool> Original_Vacancy, string Original_Price) {
+        public virtual int Delete(int Original_ApartmentNumber, global::System.Nullable<int> Original_NumberOfOccupents, int Original_ApartmentSize, int Original_NumberOfBedrooms, int Original_ParkingSpace, global::System.Nullable<bool> Original_Pets, global::System.Nullable<bool> Original_Smoking, string Original_Price, global::System.Nullable<global::System.DateTime> Original_MoveOutDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ApartmentNumber));
             if ((Original_NumberOfOccupents.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2758,19 +2792,19 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_Vacancy.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((bool)(Original_Vacancy.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
             if ((Original_Price == null)) {
                 throw new global::System.ArgumentNullException("Original_Price");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Price));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Price));
+            }
+            if ((Original_MoveOutDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_MoveOutDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2792,7 +2826,7 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ApartmentNumber, global::System.Nullable<int> NumberOfOccupents, int ApartmentSize, int NumberOfBedrooms, int ParkingSpace, global::System.Nullable<bool> Pets, global::System.Nullable<bool> Smoking, global::System.Nullable<bool> Vacancy, string Price) {
+        public virtual int Insert(int ApartmentNumber, global::System.Nullable<int> NumberOfOccupents, int ApartmentSize, int NumberOfBedrooms, int ParkingSpace, global::System.Nullable<bool> Pets, global::System.Nullable<bool> Smoking, string Price, global::System.Nullable<global::System.DateTime> MoveOutDate) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ApartmentNumber));
             if ((NumberOfOccupents.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(NumberOfOccupents.Value));
@@ -2815,17 +2849,17 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Vacancy.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Vacancy.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
             if ((Price == null)) {
                 throw new global::System.ArgumentNullException("Price");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Price));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Price));
+            }
+            if ((MoveOutDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(MoveOutDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2855,8 +2889,8 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                     int ParkingSpace, 
                     global::System.Nullable<bool> Pets, 
                     global::System.Nullable<bool> Smoking, 
-                    global::System.Nullable<bool> Vacancy, 
                     string Price, 
+                    global::System.Nullable<global::System.DateTime> MoveOutDate, 
                     int Original_ApartmentNumber, 
                     global::System.Nullable<int> Original_NumberOfOccupents, 
                     int Original_ApartmentSize, 
@@ -2864,8 +2898,8 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                     int Original_ParkingSpace, 
                     global::System.Nullable<bool> Original_Pets, 
                     global::System.Nullable<bool> Original_Smoking, 
-                    global::System.Nullable<bool> Original_Vacancy, 
-                    string Original_Price) {
+                    string Original_Price, 
+                    global::System.Nullable<global::System.DateTime> Original_MoveOutDate) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ApartmentNumber));
             if ((NumberOfOccupents.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(NumberOfOccupents.Value));
@@ -2888,17 +2922,17 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Vacancy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Vacancy.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
             if ((Price == null)) {
                 throw new global::System.ArgumentNullException("Price");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Price));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Price));
+            }
+            if ((MoveOutDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(MoveOutDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ApartmentNumber));
             if ((Original_NumberOfOccupents.HasValue == true)) {
@@ -2928,19 +2962,19 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_Vacancy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_Vacancy.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
             if ((Original_Price == null)) {
                 throw new global::System.ArgumentNullException("Original_Price");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Price));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Price));
+            }
+            if ((Original_MoveOutDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_MoveOutDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2969,8 +3003,8 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                     int ParkingSpace, 
                     global::System.Nullable<bool> Pets, 
                     global::System.Nullable<bool> Smoking, 
-                    global::System.Nullable<bool> Vacancy, 
                     string Price, 
+                    global::System.Nullable<global::System.DateTime> MoveOutDate, 
                     int Original_ApartmentNumber, 
                     global::System.Nullable<int> Original_NumberOfOccupents, 
                     int Original_ApartmentSize, 
@@ -2978,9 +3012,9 @@ SELECT ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, Park
                     int Original_ParkingSpace, 
                     global::System.Nullable<bool> Original_Pets, 
                     global::System.Nullable<bool> Original_Smoking, 
-                    global::System.Nullable<bool> Original_Vacancy, 
-                    string Original_Price) {
-            return this.Update(Original_ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Vacancy, Price, Original_ApartmentNumber, Original_NumberOfOccupents, Original_ApartmentSize, Original_NumberOfBedrooms, Original_ParkingSpace, Original_Pets, Original_Smoking, Original_Vacancy, Original_Price);
+                    string Original_Price, 
+                    global::System.Nullable<global::System.DateTime> Original_MoveOutDate) {
+            return this.Update(Original_ApartmentNumber, NumberOfOccupents, ApartmentSize, NumberOfBedrooms, ParkingSpace, Pets, Smoking, Price, MoveOutDate, Original_ApartmentNumber, Original_NumberOfOccupents, Original_ApartmentSize, Original_NumberOfBedrooms, Original_ParkingSpace, Original_Pets, Original_Smoking, Original_Price, Original_MoveOutDate);
         }
     }
     
