@@ -29,14 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payments));
             System.Windows.Forms.Label transactionIDLabel;
             System.Windows.Forms.Label amountPaidLabel;
             System.Windows.Forms.Label transcationDateLabel;
             System.Windows.Forms.Label apartmentNumberLabel;
-            System.Windows.Forms.Label priceLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payments));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.transactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apartmentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountDueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tRANSACTIONSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aMSDataSet = new ISDS454.AMSDataSet();
             this.priceCheckToolStrip = new System.Windows.Forms.ToolStrip();
             this.priceCheckToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.aPARTMENTSBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -56,31 +61,61 @@
             this.amountPaidTextBox = new System.Windows.Forms.TextBox();
             this.transcationDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
-            this.priceTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.aPARTMENTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aMSDataSet = new ISDS454.AMSDataSet();
-            this.tRANSACTIONSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.transactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transcationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apartmentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.tRANSACTIONSTableAdapter = new ISDS454.AMSDataSetTableAdapters.TRANSACTIONSTableAdapter();
             this.tableAdapterManager = new ISDS454.AMSDataSetTableAdapters.TableAdapterManager();
             this.aPARTMENTSTableAdapter = new ISDS454.AMSDataSetTableAdapters.APARTMENTSTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
             transactionIDLabel = new System.Windows.Forms.Label();
             amountPaidLabel = new System.Windows.Forms.Label();
             transcationDateLabel = new System.Windows.Forms.Label();
             apartmentNumberLabel = new System.Windows.Forms.Label();
-            priceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tRANSACTIONSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).BeginInit();
             this.priceCheckToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingNavigator)).BeginInit();
             this.aPARTMENTSBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRANSACTIONSBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // transactionIDLabel
+            // 
+            transactionIDLabel.AutoSize = true;
+            transactionIDLabel.Location = new System.Drawing.Point(24, 102);
+            transactionIDLabel.Name = "transactionIDLabel";
+            transactionIDLabel.Size = new System.Drawing.Size(104, 17);
+            transactionIDLabel.TabIndex = 3;
+            transactionIDLabel.Text = "Transaction ID:";
+            // 
+            // amountPaidLabel
+            // 
+            amountPaidLabel.AutoSize = true;
+            amountPaidLabel.Location = new System.Drawing.Point(24, 233);
+            amountPaidLabel.Name = "amountPaidLabel";
+            amountPaidLabel.Size = new System.Drawing.Size(92, 17);
+            amountPaidLabel.TabIndex = 5;
+            amountPaidLabel.Text = "Amount Paid:";
+            // 
+            // transcationDateLabel
+            // 
+            transcationDateLabel.AutoSize = true;
+            transcationDateLabel.Location = new System.Drawing.Point(24, 188);
+            transcationDateLabel.Name = "transcationDateLabel";
+            transcationDateLabel.Size = new System.Drawing.Size(121, 17);
+            transcationDateLabel.TabIndex = 7;
+            transcationDateLabel.Text = "Transcation Date:";
+            transcationDateLabel.Click += new System.EventHandler(this.transcationDateLabel_Click);
+            // 
+            // apartmentNumberLabel
+            // 
+            apartmentNumberLabel.AutoSize = true;
+            apartmentNumberLabel.Location = new System.Drawing.Point(24, 142);
+            apartmentNumberLabel.Name = "apartmentNumberLabel";
+            apartmentNumberLabel.Size = new System.Drawing.Size(131, 17);
+            apartmentNumberLabel.TabIndex = 9;
+            apartmentNumberLabel.Text = "Apartment Number:";
             // 
             // dataGridView1
             // 
@@ -104,12 +139,50 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // transactionIDDataGridViewTextBoxColumn
+            // 
+            this.transactionIDDataGridViewTextBoxColumn.DataPropertyName = "TransactionID";
+            this.transactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
+            this.transactionIDDataGridViewTextBoxColumn.Name = "transactionIDDataGridViewTextBoxColumn";
+            this.transactionIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // amountPaidDataGridViewTextBoxColumn
+            // 
+            this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "AmountPaid";
+            this.amountPaidDataGridViewTextBoxColumn.HeaderText = "AmountPaid";
+            this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
+            this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transcationDateDataGridViewTextBoxColumn
+            // 
+            this.transcationDateDataGridViewTextBoxColumn.DataPropertyName = "TranscationDate";
+            this.transcationDateDataGridViewTextBoxColumn.HeaderText = "TranscationDate";
+            this.transcationDateDataGridViewTextBoxColumn.Name = "transcationDateDataGridViewTextBoxColumn";
+            this.transcationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apartmentNumberDataGridViewTextBoxColumn
+            // 
+            this.apartmentNumberDataGridViewTextBoxColumn.DataPropertyName = "ApartmentNumber";
+            this.apartmentNumberDataGridViewTextBoxColumn.HeaderText = "ApartmentNumber";
+            this.apartmentNumberDataGridViewTextBoxColumn.Name = "apartmentNumberDataGridViewTextBoxColumn";
+            this.apartmentNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // AmountDueDataGridViewTextBoxColumn
             // 
             this.AmountDueDataGridViewTextBoxColumn.DataPropertyName = "AmountDue";
             this.AmountDueDataGridViewTextBoxColumn.HeaderText = "AmountDue";
             this.AmountDueDataGridViewTextBoxColumn.Name = "AmountDueDataGridViewTextBoxColumn";
             this.AmountDueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tRANSACTIONSBindingSource
+            // 
+            this.tRANSACTIONSBindingSource.DataMember = "TRANSACTIONS";
+            this.tRANSACTIONSBindingSource.DataSource = this.aMSDataSet;
+            // 
+            // aMSDataSet
+            // 
+            this.aMSDataSet.DataSetName = "AMSDataSet";
+            this.aMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // priceCheckToolStrip
             // 
@@ -254,15 +327,6 @@
             this.aPARTMENTSBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
             this.aPARTMENTSBindingNavigatorSaveItem.Text = "Save Data";
             // 
-            // transactionIDLabel
-            // 
-            transactionIDLabel.AutoSize = true;
-            transactionIDLabel.Location = new System.Drawing.Point(24, 102);
-            transactionIDLabel.Name = "transactionIDLabel";
-            transactionIDLabel.Size = new System.Drawing.Size(104, 17);
-            transactionIDLabel.TabIndex = 3;
-            transactionIDLabel.Text = "Transaction ID:";
-            // 
             // transactionIDTextBox
             // 
             this.transactionIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRANSACTIONSBindingSource, "TransactionID", true));
@@ -272,51 +336,23 @@
             this.transactionIDTextBox.TabIndex = 4;
             this.transactionIDTextBox.TextChanged += new System.EventHandler(this.transactionIDTextBox_TextChanged);
             // 
-            // amountPaidLabel
-            // 
-            amountPaidLabel.AutoSize = true;
-            amountPaidLabel.Location = new System.Drawing.Point(24, 246);
-            amountPaidLabel.Name = "amountPaidLabel";
-            amountPaidLabel.Size = new System.Drawing.Size(92, 17);
-            amountPaidLabel.TabIndex = 5;
-            amountPaidLabel.Text = "Amount Paid:";
-            // 
             // amountPaidTextBox
             // 
             this.amountPaidTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRANSACTIONSBindingSource, "AmountPaid", true));
-            this.amountPaidTextBox.Location = new System.Drawing.Point(161, 246);
+            this.amountPaidTextBox.Location = new System.Drawing.Point(161, 233);
             this.amountPaidTextBox.Name = "amountPaidTextBox";
             this.amountPaidTextBox.Size = new System.Drawing.Size(100, 22);
             this.amountPaidTextBox.TabIndex = 6;
             this.amountPaidTextBox.TextChanged += new System.EventHandler(this.amountPaidTextBox_TextChanged);
             // 
-            // transcationDateLabel
-            // 
-            transcationDateLabel.AutoSize = true;
-            transcationDateLabel.Location = new System.Drawing.Point(24, 211);
-            transcationDateLabel.Name = "transcationDateLabel";
-            transcationDateLabel.Size = new System.Drawing.Size(121, 17);
-            transcationDateLabel.TabIndex = 7;
-            transcationDateLabel.Text = "Transcation Date:";
-            transcationDateLabel.Click += new System.EventHandler(this.transcationDateLabel_Click);
-            // 
             // transcationDateDateTimePicker
             // 
             this.transcationDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.tRANSACTIONSBindingSource, "TranscationDate", true));
-            this.transcationDateDateTimePicker.Location = new System.Drawing.Point(161, 211);
+            this.transcationDateDateTimePicker.Location = new System.Drawing.Point(161, 188);
             this.transcationDateDateTimePicker.Name = "transcationDateDateTimePicker";
             this.transcationDateDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.transcationDateDateTimePicker.TabIndex = 8;
             this.transcationDateDateTimePicker.ValueChanged += new System.EventHandler(this.transcationDateDateTimePicker_ValueChanged);
-            // 
-            // apartmentNumberLabel
-            // 
-            apartmentNumberLabel.AutoSize = true;
-            apartmentNumberLabel.Location = new System.Drawing.Point(24, 142);
-            apartmentNumberLabel.Name = "apartmentNumberLabel";
-            apartmentNumberLabel.Size = new System.Drawing.Size(131, 17);
-            apartmentNumberLabel.TabIndex = 9;
-            apartmentNumberLabel.Text = "Apartment Number:";
             // 
             // apartmentNumberTextBox
             // 
@@ -327,77 +363,21 @@
             this.apartmentNumberTextBox.TabIndex = 10;
             this.apartmentNumberTextBox.TextChanged += new System.EventHandler(this.apartmentNumberTextBox_TextChanged);
             // 
-            // priceLabel
-            // 
-            priceLabel.AutoSize = true;
-            priceLabel.Location = new System.Drawing.Point(24, 177);
-            priceLabel.Name = "priceLabel";
-            priceLabel.Size = new System.Drawing.Size(44, 17);
-            priceLabel.TabIndex = 11;
-            priceLabel.Text = "Price:";
-            priceLabel.Click += new System.EventHandler(this.priceLabel_Click);
-            // 
-            // priceTextBox
-            // 
-            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aPARTMENTSBindingSource, "Price", true));
-            this.priceTextBox.Location = new System.Drawing.Point(161, 174);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(100, 22);
-            this.priceTextBox.TabIndex = 12;
-            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(27, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 37);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Create Late Notice";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // aPARTMENTSBindingSource
             // 
             this.aPARTMENTSBindingSource.DataMember = "APARTMENTS";
             this.aPARTMENTSBindingSource.DataSource = this.aMSDataSet;
             // 
-            // aMSDataSet
+            // button1
             // 
-            this.aMSDataSet.DataSetName = "AMSDataSet";
-            this.aMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tRANSACTIONSBindingSource
-            // 
-            this.tRANSACTIONSBindingSource.DataMember = "TRANSACTIONS";
-            this.tRANSACTIONSBindingSource.DataSource = this.aMSDataSet;
-            // 
-            // transactionIDDataGridViewTextBoxColumn
-            // 
-            this.transactionIDDataGridViewTextBoxColumn.DataPropertyName = "TransactionID";
-            this.transactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
-            this.transactionIDDataGridViewTextBoxColumn.Name = "transactionIDDataGridViewTextBoxColumn";
-            this.transactionIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // amountPaidDataGridViewTextBoxColumn
-            // 
-            this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "AmountPaid";
-            this.amountPaidDataGridViewTextBoxColumn.HeaderText = "AmountPaid";
-            this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
-            this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transcationDateDataGridViewTextBoxColumn
-            // 
-            this.transcationDateDataGridViewTextBoxColumn.DataPropertyName = "TranscationDate";
-            this.transcationDateDataGridViewTextBoxColumn.HeaderText = "TranscationDate";
-            this.transcationDateDataGridViewTextBoxColumn.Name = "transcationDateDataGridViewTextBoxColumn";
-            this.transcationDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apartmentNumberDataGridViewTextBoxColumn
-            // 
-            this.apartmentNumberDataGridViewTextBoxColumn.DataPropertyName = "ApartmentNumber";
-            this.apartmentNumberDataGridViewTextBoxColumn.HeaderText = "ApartmentNumber";
-            this.apartmentNumberDataGridViewTextBoxColumn.Name = "apartmentNumberDataGridViewTextBoxColumn";
-            this.apartmentNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.button1.Location = new System.Drawing.Point(27, 315);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(192, 37);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Create Late Notice";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tRANSACTIONSTableAdapter
             // 
@@ -416,14 +396,25 @@
             // 
             this.aPARTMENTSTableAdapter.ClearBeforeFill = true;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(27, 379);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(165, 37);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Main Menu";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Payments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 468);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(priceLabel);
-            this.Controls.Add(this.priceTextBox);
             this.Controls.Add(apartmentNumberLabel);
             this.Controls.Add(this.apartmentNumberTextBox);
             this.Controls.Add(transcationDateLabel);
@@ -440,14 +431,14 @@
             this.Text = "Payments";
             this.Load += new System.EventHandler(this.Payments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tRANSACTIONSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).EndInit();
             this.priceCheckToolStrip.ResumeLayout(false);
             this.priceCheckToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingNavigator)).EndInit();
             this.aPARTMENTSBindingNavigator.ResumeLayout(false);
             this.aPARTMENTSBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aPARTMENTSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aMSDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRANSACTIONSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,7 +477,7 @@
         private System.Windows.Forms.DateTimePicker transcationDateDateTimePicker;
         private System.Windows.Forms.TextBox apartmentNumberTextBox;
         private System.Windows.Forms.BindingSource aPARTMENTSBindingSource;
-        private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

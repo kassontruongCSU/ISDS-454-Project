@@ -92,30 +92,30 @@ namespace ISDS454
         private void button1_Click_1(object sender, EventArgs e)
         {
             string strApartmentNumber;
-            int iApartmentPrice;
             string strTransactionDate;
             int iAmountPaid;
-            int iAmountDue;
+          
             DateTime now = DateTime.Now;
 
 
             strApartmentNumber = apartmentNumberTextBox.Text;
-            iApartmentPrice = Convert.ToInt32(priceTextBox.Text);
+            
             strTransactionDate = transcationDateDateTimePicker.Text;
             iAmountPaid = Convert.ToInt32(amountPaidTextBox.Text);
-            iAmountDue = iApartmentPrice - iAmountPaid;
+          
 
 
-            MessageBox.Show("OVERDUE RENT. PAY BY END OF MONTH OR RISK EVICTION" + "\n" + "***************************************************" + "\n" 
+            MessageBox.Show("OVERDUE RENT. PAY BY END OF MONTH OR RISK EVICTION" + "\n" + "***************************************************" + "\n" +
+                "CONTACT FRONT DESK STAFF ASAP, TO DISCUSS OWED FEES AND PAYMENT " + "\n" +
+                "***************************************************" + "\n" 
                 + "Apartment Number: " + strApartmentNumber + "\n"
-                + "Apartment Price: " + iApartmentPrice + "\n" + "Last Transaction Date : " + strTransactionDate + "\n" +
-                "Amount Paid: " + iAmountPaid + "\n" + "Amount Due: " + iAmountDue + "\n" + "***************************************************" + "\n"
-                + now, "LATE PAYMENT NOTICE");
+                + "Date of Last Transaction : " + strTransactionDate + "\n" +
+                "Amount Paid: " + iAmountPaid + "\n" + "***************************************************" + "\n" + now, "LATE PAYMENT NOTICE");
         }
 
         private void priceTextBox_TextChanged(object sender, EventArgs e)
         {
-            priceTextBox.Update();
+          
         }
 
         private void priceLabel_Click(object sender, EventArgs e)
@@ -126,6 +126,13 @@ namespace ISDS454
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu MainMenu = new MainMenu();
+            MainMenu.Show();
         }
     }
 }
