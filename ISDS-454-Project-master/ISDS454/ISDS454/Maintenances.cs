@@ -48,5 +48,53 @@ namespace ISDS454
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+ 
+
+            string strApartment;
+            string strMaintenance;
+            string strDescription;
+            string strTime;
+            bool bCompleteStatus;
+
+            
+            strApartment = apartmentNumberTextBox.Text;
+            strMaintenance = typeOfMaintenanceTextBox.Text;
+            strDescription = descriptionTextBox.Text;
+            strTime = dateDateTimePicker.Text;
+            bCompleteStatus = isCompletedCheckBox.Checked;
+
+
+            MessageBox.Show("PRINT FOR TENANT USE" + "\n" + "***************************************************" + "\n" + "Apartment Number: " + strApartment + "\n" 
+                + "Maintenance Type: " + strMaintenance + "\n" + "Description : " + strDescription + "\n" +
+                "Time and Date Recorded: " + strTime + "\n" + "Is Completed: " + bCompleteStatus + "\n" + "***************************************************", "Recipt");
+        }
+
+        private void apartmentNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void typeOfMaintenanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isCompletedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
